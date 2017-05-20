@@ -5,17 +5,26 @@ import SectionSeparator from '../components/SectionSeparator'
 import SpeakersSection from '../components/SpeakersSection'
 import TicketsSection from '../components/TicketsSection'
 import SponsorsSection from '../components/SponsorsSection'
+import { Element } from 'react-scroll'
 
 export default () => (
   <MainLayout>
     <HeroUnit />
     <SectionSeparator first />
-    <section id='tickets'><TicketsSection /></section>
+    <Element name='tickets'>
+      <section id='tickets'><TicketsSection /></section>
+    </Element>
     <SectionSeparator />
-    <section id='sponsor'><SponsorsSection /></section>
+    <Element name='sponsors'>
+      <section id='sponsors'><SponsorsSection /></section>
+    </Element>
     <SectionSeparator />
-    <section id='speakers'><SpeakersSection /></section>
+    <Element name='speakers'>
+      <section id='speakers'><SpeakersSection /></section>
+    </Element>
     <SectionSeparator />
-    <section id='contact'><FooterSection /></section>
+    <Element name='contact'>
+      <section id='contact'><FooterSection /></section>
+    </Element>
   </MainLayout>
 )

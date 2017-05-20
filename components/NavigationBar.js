@@ -1,6 +1,7 @@
 import LevitatingLink from './LevitatingLink'
+import { Link } from 'react-scroll'
 
-export default function NavigationBar () {
+export default function NavigationBar() {
   return (
     <nav>
       <NavigationLink href='#about' disabled>About</NavigationLink>
@@ -19,11 +20,12 @@ export default function NavigationBar () {
   )
 }
 
-function NavigationLink ({ href, disabled, children }) {
+function NavigationLink({ href, disabled, children }) {
   return (
-    <span className={disabled ? 'disabled' : ''}>
-      <LevitatingLink href={href}>{children}</LevitatingLink>
-      <style jsx>{`
+    <Link to={children.toLowerCase()} smooth={true} duration={500} >
+      <span className={disabled ? 'disabled' : ''}>
+        <LevitatingLink href={href}>{children}</LevitatingLink>
+        <style jsx>{`
         span {
           text-transform: uppercase;
           padding: 0 1.5em;
@@ -39,6 +41,7 @@ function NavigationLink ({ href, disabled, children }) {
           span { display: block; }
         }
       `}</style>
-    </span>
+      </span>
+    </Link>
   )
 }
